@@ -10,7 +10,7 @@ Inspired by [pgrm/docker-grav](https://github.com/pgrm/docker-grav) and [docker-
 ## Basic usage
 Run
 ```
-docker run -v grav:/var/www/html -p 8080:80 grav:1.4.8-admin
+docker run -v grav:/var/www/html -p 8080:80 grav:1.4.8
 ```
 and then visit http://localhost:8080/
 
