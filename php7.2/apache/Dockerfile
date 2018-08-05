@@ -25,6 +25,9 @@ RUN set -ex; \
 		| sort -u \
 		| xargs -rt apt-mark manual; \
 	\
+	apt-get install -y --no-install-recommends \
+        unzip \
+    ; \
 	apt-get purge -y --auto-remove -o APT::AutoRemove::RecommendsImportant=false; \
 	rm -rf /var/lib/apt/lists/*
 
