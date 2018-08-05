@@ -46,16 +46,16 @@ RUN a2enmod rewrite expires
 
 VOLUME /var/www/html
 
-ENV WORDPRESS_VERSION 4.9.8
-ENV WORDPRESS_SHA1 0945bab959cba127531dceb2c4fed81770812b4f
+ENV GRAV_VERSION 1.4.8
+ENV GRAV_SHA1 dc483c83c90dc1b25d001276cb08bd94504f2318
 
 RUN set -ex; \
-	curl -o wordpress.tar.gz -fSL "https://wordpress.org/wordpress-${WORDPRESS_VERSION}.tar.gz"; \
-	echo "$WORDPRESS_SHA1 *wordpress.tar.gz" | sha1sum -c -; \
-# upstream tarballs include ./wordpress/ so this gives us /usr/src/wordpress
-	tar -xzf wordpress.tar.gz -C /usr/src/; \
-	rm wordpress.tar.gz; \
-	chown -R www-data:www-data /usr/src/wordpress
+	curl -o grav-admin.zip -fSL "https://github.com/getgrav/grav/releases/download/${GRAV_VERSION}/grav-admin-v${GRAV_VERSION}.zip"; \
+	echo "$GRAV_SHA1 *grav-admin.zip" | sha1sum -c -; \
+# upstream tarballs include ./grav-admin/ so this gives us /usr/src/grav-admin
+	unzip grav-admin.zip -d /usr/src/; \
+	rm grav-admin.zip; \
+	chown -R www-data:www-data /usr/src/grav-admin
 
 COPY docker-entrypoint.sh /usr/local/bin/
 
