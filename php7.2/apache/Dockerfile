@@ -46,8 +46,8 @@ RUN a2enmod rewrite expires
 
 VOLUME /var/www/html
 
-ENV GRAV_VERSION 1.5.0-rc.1
-ENV GRAV_SHA1 9e2df5912f71024a70754d715005c56223be14d7
+ENV GRAV_VERSION 1.5.6
+ENV GRAV_SHA1 773988a93be67a0da1d9eb810da1d2c0019ed938
 
 RUN set -ex; \
 	curl -o grav-admin.zip -fSL "https://github.com/getgrav/grav/releases/download/${GRAV_VERSION}/grav-admin-v${GRAV_VERSION}.zip"; \
